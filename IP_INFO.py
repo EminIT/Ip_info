@@ -29,8 +29,10 @@ def get_info_by_ip(ip='127.0.0.1'):
         area.save(f'{response.get("query")}_{response.get("city")}.html')   #        create html file 
         
     except requests.exceptions.ConnectionError:
-        print(Fore.GREEN + '[!] Please check your connection!')     # except erorr
+        print(Fore.GREEN + '[!] Please check your connection!')     # connecting find
         
+    except ValueError:
+        print('Erorr:false ip adres')       # value erorr        
         
 def main():
     preview_text = Figlet(font='slant')
@@ -44,4 +46,3 @@ if __name__ == '__main__':
     main()
 
 input('Type "Enter" to end')
-
